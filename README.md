@@ -6,4 +6,4 @@ This project will start basic enough as a simple BlackJack game where a player i
 
 Looking forward to seeing where this project goes!
 
-(This README was written in VIM as I am currently testing its capabilities for teaching purposes)
+*(This README was written in VIM as I am currently testing its capabilities for teaching purposes)*
