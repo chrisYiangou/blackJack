@@ -23,6 +23,10 @@ let blackkJack = false;
 let bust = true;
 let message = "";
 
+
+/* This is the initial button to start the game - I will need to add three more buttons to complete 
+the functionality of the website. As well as this - we will create a "bot", who the player will play against 
+which should be good*/ 
 function startBlackJack() {
 
   firstCard.innerHTML = valueOfCard1;
