@@ -8,8 +8,8 @@ let secondCard = document.getElementById("secondCard");
 let valueOfCard1 = Math.floor(Math.random() * 10) + 2;
 let valueOfCard2 = Math.floor(Math.random() * 10) + 2; 
 
-console.log(valueOfCard1);
-console.log(valueOfCard2);
+//console.log(valueOfCard1);
+//console.log(valueOfCard2);
 
 let sum = valueOfCard1 + valueOfCard2;
 let blackkJack = false;
