@@ -2,10 +2,16 @@
 
 //let firstCard = Math.floor(Math.random + 2);
 //let secondCard = Math.floor(Math.random + 2);
+
+/*These three variables are allowing me access the document.
+In this way I am able to play around with the InnerHTML and edit it to my hearts content*/
 let firstCard = document.getElementById("firstCard");
 let secondCard = document.getElementById("secondCard");
 let sumOfCards = document.getElementById("sumOfCards");
+let messageHTML = document.getElementById("message");
 
+/*This is the actual value of the cards - I am making it random so that
+when a player starts the game, they will have two random cards to start with*/
 let valueOfCard1 = Math.floor(Math.random() * 10) + 2;
 let valueOfCard2 = Math.floor(Math.random() * 10) + 2; 
 
@@ -34,7 +40,7 @@ function startBlackJack() {
     bust = false;
     sumOfCards.innerHTML = sum;
   }
-  console.log(message);
+  messageHTML.innerHTML = message;
 }
 
 
