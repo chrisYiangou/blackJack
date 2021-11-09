@@ -8,13 +8,19 @@ body {
     color: red;
 }
 
-.gameBlock {
+.cardBlock {
     margin-left: auto;
     margin-right: auto;
 }
 
 button {
     color: red;
-    width: 100px;
+    width: 150px;
     background-color:lightgreen;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
+
+table, th, td {
+    border: 1px solid black;
+  }
