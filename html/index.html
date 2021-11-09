@@ -1,23 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="indexStyleSheet" href="/css/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/index.css" />
     <title>BlackJack Home Page</title>
-</head>
-<body>
-    <div id = "homePageTitle">
-        <h1>Chris's BlackJack</h1>
-    </div>
-    <br>
-    <div id = "gameBlock">
-        <p>Roll Up and Play Some BlackJack</p>
-        <p>Cards:</p>
-        <p>Sum of Cards:</p>
+  </head>
+  <body>
+    <div class="homePageTitle">
+      <header>
+        <a href="/html/index.html">
+          <img src="/pictures/ChrisBlackJack.png" alt="Chris Poker" />
+        </a>
+        <h2>For All your BlackJack needs</h2>
+      </header>
     </div>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="index.html"
+        ><img src="/pictures/cat_caviar.jpg" alt="Cat-Caviar" width="100px" />
+        Navbar</a
+      >
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Game Mode
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Poker</a>
+              <a class="dropdown-item" href="#">Uno</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Click Here for a laugh</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <br />
+
+    <strong><p>Roll up Roll up and play some BlackJack</p></strong>
+
+     <table class="twentyOne">
+       <caption>21</caption>
+       <thead> 
+        <th scope="row"> Cards</th>
+      </thead>
+      <tr>
+        <td>1st Card: <span id ="firstCard"></span></td>
+      </tr>
+      <tr>
+        <td>2nd Card: <span id ="secondCard"></span></td>
+      </tr>
+     </table>
+    </div>
+
+      <table class = "sumBlock">
+        <caption>Sum of Cards</caption>
+        <thead>
+          <th scope="row">Sum of Cards</th>
+        </thead>
+        <tr>
+          <td><span id = "sumOfCards"></span></td>
+        </tr>
+      </table>
+
+      <p id="message"></p>
+
+    <button>DRAW</button>
+    <button>FOLD</button>
+    <br>
+    <button onclick="startBlackJack()">START GAME</button>
+    <button onclick="resetBlackJack()">RESET GAME</button>
+   
+
     
-</body>
+    <script src="/js/index.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
