@@ -71,12 +71,27 @@
     </nav>
     <br />
 
-    <div class="gameBlock">
-      <p>Roll Up and Play Some BlackJack</p>
-      <p>Cards:</p>
-      <p>Sum of Cards:</p>
+    <strong><p>Roll up Roll up and play some BlackJack</p></strong>
+
+    <div class="cardBlock">
+     <table>
+       <caption>21</caption>
+       <thead> 
+        <th scope="row"> Cards</th>
+      </thead>
+      <tr>
+        <td>1st Card: <span id ="firstCard"></span></td>
+      </tr>
+      <tr>
+        <td>2nd Card: <span id ="secondCard"></span></td>
+      </tr>
+     </table>
     </div>
 
+    <button onclick="startBlackJack()">START GAME</button>
+    <button>RESET GAME</button>
+
+    
     <script src="/js/index.js"></script>
     <script
       src="https://code.jquery.com/jquery-3.2.1.slim.min.js"

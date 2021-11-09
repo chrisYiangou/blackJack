@@ -1,19 +1,34 @@
-'use strict'
+"use strict";
 
-let firstCard = Math.floor((Math.random) + 2);
-let secondCard = Math.floor((Math.random) + 2);
+//let firstCard = Math.floor(Math.random + 2);
+//let secondCard = Math.floor(Math.random + 2);
+let firstCard = document.getElementById("firstCard");
+let secondCard = document.getElementById("secondCard");
 
-let sum = firstCard + secondCard;
-let hasBlackJack = false;
-let busted = true;
+let valueOfCard1 = Math.floor(Math.random() * 10) + 2;
+let valueOfCard2 = Math.floor(Math.random() * 10) + 2; 
+
+console.log(valueOfCard1);
+console.log(valueOfCard2);
+
+let sum = valueOfCard1 + valueOfCard2;
+let blackkJack = false;
+let bust = true;
 let message = "";
 
-if (sum < 20) {
+function startBlackJack() {
+
+  firstCard.innerHTML = valueOfCard1;
+  secondCard.innerHTML = valueOfCard2;
+
+  if (sum < 20) {
     message = "Do you want to draw or fold";
-} else if (sum === 21) {
+  } else if (sum === 21) {
     message = "BLACKJACK";
-    hasBlackJack = true;
-} else {
+    BlackJack = true;
+  } else {
     message = "BUST";
-    busted = false;
+    bust = false;
+  }
+  console.log(message);
 }
