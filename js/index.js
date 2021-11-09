@@ -5,8 +5,11 @@
 let firstCard = document.getElementById("firstCard");
 let secondCard = document.getElementById("secondCard");
 
-let valueOfCard1 = Math.floor(Math.random +2);
-let valueOfCard2 = Math.floor(Math.random +2); 
+let valueOfCard1 = Math.floor(Math.random() * 10) + 2;
+let valueOfCard2 = Math.floor(Math.random() * 10) + 2; 
+
+console.log(valueOfCard1);
+console.log(valueOfCard2);
 
 let sum = valueOfCard1 + valueOfCard2;
 let blackkJack = false;
@@ -15,8 +18,8 @@ let message = "";
 
 function startBlackJack() {
 
-  firstCard.innerText= valueOfCard1.toString();
-  secondCard.innerText= valueOfCard2.toString();
+  firstCard.innerHTML = valueOfCard1;
+  secondCard.innerHTML = valueOfCard2;
 
   if (sum < 20) {
     message = "Do you want to draw or fold";
