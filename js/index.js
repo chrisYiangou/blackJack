@@ -47,4 +47,7 @@ function startBlackJack() {
   messageHTML.innerHTML = message;
 }
 
+function resetBlackJack() {
+  window.location.reload();
+}
 
