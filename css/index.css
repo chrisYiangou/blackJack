@@ -19,6 +19,8 @@ button {
     background-color:lightgreen;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-weight: bold;
+    border-radius: 5px;
 }
 
 table, th, td {
@@ -27,8 +29,13 @@ table, th, td {
     margin-left: auto;
     margin-right: auto;
     width: auto;
-    min-width: 400px;
     height: auto;
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .divider {
+    height:auto;
+    display:inline-block;
+
   }
