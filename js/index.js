@@ -77,7 +77,6 @@ change the game so that the message says Win Fail etc */
 
 function fold() {
  
-
   if (cardSum <= 20) {
     hiddenMessage = "Could do better try again";
   }
@@ -87,7 +86,6 @@ function fold() {
   if (bust) {
     hiddenMessage = "Try harder - Gamble More"
   }
-  messageHTML.innerHTML = message;
   hiddenMessageEl.innerHTML = hiddenMessage;
 
 }
