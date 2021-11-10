@@ -41,12 +41,22 @@ function startBlackJack() {
     sumOfCards.innerHTML = sum;
   } else {
     message = "BUST";
-    bust = false;
+    bust = true;
     sumOfCards.innerHTML = sum;
   }
   messageHTML.innerHTML = message;
 }
 
+/* Creating a function that is able to end the game will be my next step this willbe the FOLD button
+ this will essentially just 
+change the game so that the message says Win Fail etc */
+
+/* The Draw Button will enable a user to be able to add a third, forth, fifth card and enable the user to keep 
+playing the game. */
+
+
+/*This function is made to reset the webpage so that the values within the boxes are reset - In case the user wants to start again
+I should start thinking about how users can actually start saving their previous wins/losses...... */
 function resetBlackJack() {
   window.location.reload();
 }
