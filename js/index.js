@@ -9,6 +9,7 @@ let firstCard = document.getElementById("firstCard");
 let secondCard = document.getElementById("secondCard");
 let sumOfCards = document.getElementById("sumOfCards");
 let messageHTML = document.getElementById("message");
+let hiddenMessageEl = document.getElementById("hiddenMessageEl")
 let twentyOneEl = document.getElementById("twentyOne");
 
 //Additional booleans and a message is required to help the players know how they are doing 
@@ -19,6 +20,7 @@ let twentyOneEl = document.getElementById("twentyOne");
 let blackkJack = false;
 let bust = true;
 let message = "";
+let hiddenMessage = "";
 let cardSum = 0;
 
 /*This is the actual value of the cards - I am making it random so that
@@ -73,15 +75,34 @@ function startBlackJack() {
  this will essentially just 
 change the game so that the message says Win Fail etc */
 
+function fold() {
+ 
+
+  if (cardSum <= 20) {
+    hiddenMessage = "Could do better try again";
+  }
+  if (BlackJack) {
+    hiddenMessage = "Well done on Winning this hand"
+  }
+  if (bust) {
+    hiddenMessage = "Try harder - Gamble More"
+  }
+  messageHTML.innerHTML = message;
+  hiddenMessageEl.innerHTML = hiddenMessage;
+
+}
+
+
+
+/* The Draw Button will enable a user to be able to add a third, forth, fifth card and enable the user to keep 
+playing the game. */
+
 function draw() {
   let newCard = randomValue;
   sumArray.push(newCard);
   startBlackJack;
   
 }
-
-/* The Draw Button will enable a user to be able to add a third, forth, fifth card and enable the user to keep 
-playing the game. */
 
 
 /*This function is made to reset the webpage so that the values within the boxes are reset - In case the user wants to start again
