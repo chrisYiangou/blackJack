@@ -9,20 +9,40 @@ let firstCard = document.getElementById("firstCard");
 let secondCard = document.getElementById("secondCard");
 let sumOfCards = document.getElementById("sumOfCards");
 let messageHTML = document.getElementById("message");
+let twentyOneEl = document.getElementById("twentyOne");
 
-/*This is the actual value of the cards - I am making it random so that
-when a player starts the game, they will have two random cards to start with*/
-let valueOfCard1 = Math.floor(Math.random() * 10) + 2;
-let valueOfCard2 = Math.floor(Math.random() * 10) + 2; 
+//Additional booleans and a message is required to help the players know how they are doing 
+// in the game
 
 //console.log(valueOfCard1);
 //console.log(valueOfCard2);
-
-let sum = valueOfCard1 + valueOfCard2;
 let blackkJack = false;
 let bust = true;
 let message = "";
+let cardSum = 0;
 
+/*This is the actual value of the cards - I am making it random so that
+when a player starts the game, they will have two random cards to start with
+I've created the */
+let randomValue = Math.floor(Math.random() * 10) + 2;
+
+let valueOfCard1 = randomValue;
+let valueOfCard2 = randomValue;
+
+
+//I need to create an Array of Card Value and the store them like this
+//An additional function sum will then be created so that I am able to add everything together 
+//in the array
+let sumArray = [valueOfCard1, valueOfCard2];
+
+function sum() {
+  let sumArrayCount = sumArray.length 
+
+  for (let i = 0; i < sumArrayCount; i ++) {
+    cardSum += sumArray[i]
+  }
+  return cardSum;
+}
 
 /* This is the initial button to start the game - I will need to add three more buttons to complete 
 the functionality of the website. As well as this - we will create a "bot", who the player will play against 
@@ -31,18 +51,20 @@ function startBlackJack() {
 
   firstCard.innerHTML = valueOfCard1;
   secondCard.innerHTML = valueOfCard2;
+  
+  sum();
 
-  if (sum < 20) {
+  if (cardSum <= 20) {
     message = "Do you want to draw or fold";
-    sumOfCards.innerHTML = sum;
-  } else if (sum === 21) {
+    sumOfCards.innerHTML = cardSum;
+  } else if (cardSum === 21) {
     message = "BLACKJACK";
     BlackJack = true;
-    sumOfCards.innerHTML = sum;
+    sumOfCards.innerHTML = cardSum;
   } else {
     message = "BUST";
     bust = true;
-    sumOfCards.innerHTML = sum;
+    sumOfCards.innerHTML = cardSum;
   }
   messageHTML.innerHTML = message;
 }
@@ -50,6 +72,13 @@ function startBlackJack() {
 /* Creating a function that is able to end the game will be my next step this willbe the FOLD button
  this will essentially just 
 change the game so that the message says Win Fail etc */
+
+function draw() {
+  let newCard = randomValue;
+  sumArray.push(newCard);
+  startBlackJack;
+  
+}
 
 /* The Draw Button will enable a user to be able to add a third, forth, fifth card and enable the user to keep 
 playing the game. */
