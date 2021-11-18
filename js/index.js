@@ -51,6 +51,7 @@ let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
 let playerCards = [];
+let hasfolded = false;
 
 
 /*This is the actual value of the cards - I am making it random so that

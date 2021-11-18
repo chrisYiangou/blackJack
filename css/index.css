@@ -40,6 +40,11 @@ table, th, td {
     display:inline-block;
 
   }
+  .howToPlayTitle {
+      top: 50px;
+      position: relative;
+      text-align: left;
+  }
 
   #player-el {
       text-align: left;
