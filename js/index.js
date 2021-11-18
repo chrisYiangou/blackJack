@@ -3,6 +3,19 @@
 //let firstCard = Math.floor(Math.random + 2);
 //let secondCard = Math.floor(Math.random + 2);
 
+//As this is Chris BlackJack Im going to Create two objects representing the player (me)
+//and the opposition - the robot
+
+let player = {
+  name: "Chris",
+  pokerChips: 150
+}
+
+let robot = {
+  name: "Hanson",
+  pokerChips = 150
+}
+
 /*These three variables are allowing me access the document.
 In this way I am able to play around with the InnerHTML and edit it to my hearts content*/
 let firstCard = document.getElementById("firstCard");
