@@ -44,6 +44,8 @@ table, th, td {
       top: 50px;
       position: relative;
       text-align: left;
+      border-style: dotted;
+      background-color: gainsboro;
   }
 
   #player-el {
