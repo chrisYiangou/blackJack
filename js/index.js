@@ -7,11 +7,13 @@
 //and the opposition - the robot
 
 let player = {
+  //Will include a picture
   name: "Chris",
   pokerChips: 150
 }
 
 let robot = {
+  imgFile: '/pictures/cowboyPokerMan.png',
   name: "Hanson",
   pokerChips = 150
 }
@@ -35,6 +37,8 @@ let bust = false;
 let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
+let valueOfCard1 = randomCardValue();
+let valueOfCard2 = randomCardValue();
 
 /*This is the actual value of the cards - I am making it random so that
 when a player starts the game, they will have two random cards to start with
@@ -67,8 +71,7 @@ function sum() {
 the functionality of the website. As well as this - we will create a "bot", who the player will play against 
 which should be good*/ 
 function startBlackJack() {
-  let valueOfCard1 = randomCardValue();
-  let valueOfCard2 = randomCardValue();
+  
   firstCard.innerHTML = valueOfCard1;
   secondCard.innerHTML = valueOfCard2;
   
@@ -114,7 +117,7 @@ function fold() {
 playing the game. */
 
 function draw() {
-  let newCard = randomValue;
+  let newCard = randomValue();
   sumArray.push(newCard);
   startBlackJack;
   
