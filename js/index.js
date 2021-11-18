@@ -15,7 +15,7 @@ let player = {
 let robot = {
   imgFile: '/pictures/cowboyPokerMan.png',
   name: "Hanson",
-  pokerChips = 150
+  pokerChips: 150
 }
 
 /*These three variables are allowing me access the document.
@@ -27,6 +27,12 @@ let messageHTML = document.getElementById("message");
 let hiddenMessageEl = document.getElementById("hiddenMessageEl")
 let twentyOneEl = document.getElementById("twentyOne");
 
+
+let startButton = document.getElementById("start-el");
+let foldButton = document.getElementById("foldButton-el");
+let drawButton = document.getElementById("drawButton-el");
+let resetButton = document.getElementById("reset-el");
+
 //Additional booleans and a message is required to help the players know how they are doing 
 // in the game
 
@@ -37,8 +43,7 @@ let bust = false;
 let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
-let valueOfCard1 = randomCardValue();
-let valueOfCard2 = randomCardValue();
+
 
 /*This is the actual value of the cards - I am making it random so that
 when a player starts the game, they will have two random cards to start with
@@ -46,9 +51,10 @@ I've created the */
 function randomCardValue() {
   let randomValue = Math.floor(Math.random() * 10) + 2;
   if (randomValue === 1) {
-    randomValue = 11;
+    //User will be able to choose between 1/11 (will figure this out later)
+    return 11;
   } else if (randomValue > 10) {
-    let randomValue = 10;
+     return 10;
   } else {
     return randomValue;
   }
@@ -71,6 +77,9 @@ function sum() {
 the functionality of the website. As well as this - we will create a "bot", who the player will play against 
 which should be good*/ 
 function startBlackJack() {
+
+  let valueOfCard1 = randomCardValue();
+  let valueOfCard2 = randomCardValue();
   
   firstCard.innerHTML = valueOfCard1;
   secondCard.innerHTML = valueOfCard2;
@@ -129,4 +138,11 @@ I should start thinking about how users can actually start saving their previous
 function resetBlackJack() {
   window.location.reload();
 }
+
+
+startButton.addEventListener("click", startBlackJack());
+foldButton.addEventListener("click", fold());
+drawButton.addEventListener("click", draw());
+resetButton.addEventListener("click", resetBlackJack());
+
 

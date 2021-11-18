@@ -93,7 +93,7 @@
           <th scope="row">Sum of Cards</th>
         </thead>
         <tr>
-          <td><span id = "sumOfCards"></span></td>
+          <td><span id ="sumOfCards"></span></td>
         </tr>
       </table>
 
@@ -101,14 +101,17 @@
 
       <strong><em><p id="hiddenMessageEl"></p></em></strong>
 
-    <button class="drawButton" onclick="draw()">DRAW</button>
+      <p class="player-el"></p>
+      <p class="robot-el"></p>
+
+    <button id="drawButton-el">DRAW</button>
     <div class="divider">
-      <button class="foldButton" onclick="fold()">FOLD</button>
+      <button id="foldButton-el">FOLD</button>
     </div>
     <br>
-    <button onclick="startBlackJack()">START GAME</button>
+    <button id = "start-el">START GAME</button>
     <div class="divider">
-      <button onclick="resetBlackJack()">RESET GAME</button>
+      <button id = "reset-el">RESET GAME</button>
     </div>
 
     
