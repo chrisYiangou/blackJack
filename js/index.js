@@ -6,6 +6,9 @@
 //As this is Chris BlackJack Im going to Create two objects representing the player (me)
 //and the opposition - the robot
 
+
+
+
 let player = {
   //Will include a picture
   name: "Chris",
@@ -27,7 +30,11 @@ let messageHTML = document.getElementById("message");
 let hiddenMessageEl = document.getElementById("hiddenMessageEl")
 let twentyOneEl = document.getElementById("twentyOne");
 
+//Objects
+let playerEl = document.getElementById("player-el");
+let robotEl = document.getElementById("robot-el");
 
+//Buttons
 let startButton = document.getElementById("start-el");
 let foldButton = document.getElementById("foldButton-el");
 let drawButton = document.getElementById("drawButton-el");
@@ -38,11 +45,12 @@ let resetButton = document.getElementById("reset-el");
 
 //console.log(valueOfCard1);
 //console.log(valueOfCard2);
-let blackkJack = false;
+let blackJack = false;
 let bust = false;
 let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
+let playerCards = [];
 
 
 /*This is the actual value of the cards - I am making it random so that
@@ -62,13 +70,13 @@ function randomCardValue() {
 //I need to create an Array of Card Value and the store them like this
 //An additional function sum will then be created so that I am able to add everything together 
 //in the array
-let sumArray = [valueOfCard1, valueOfCard2];
+
 
 function sum() {
-  let sumArrayCount = sumArray.length 
+  let sumArrayCount = playerCards.length 
 
   for (let i = 0; i < sumArrayCount; i ++) {
-    cardSum += sumArray[i]
+    cardSum += playerCards[i]
   }
   return cardSum;
 }
@@ -80,9 +88,14 @@ function startBlackJack() {
 
   let valueOfCard1 = randomCardValue();
   let valueOfCard2 = randomCardValue();
+
   
   firstCard.innerHTML = valueOfCard1;
   secondCard.innerHTML = valueOfCard2;
+  playerEl.innerHTML = "Player Name: " + player.name + " || Poker Chips: " + player.pokerChips;
+  robotEl.innerHTML = "Opponents Name: " + robot.name + " || Poker Chips  " + robot.pokerChips;
+
+  playerCards.push(valueOfCard1, valueOfCard2);
   
   sum();
 
@@ -110,7 +123,7 @@ function fold() {
   if (cardSum <= 20) {
     hiddenMessage = "Could do better try again";
   }
-  if (BlackJack) {
+  if (blackJack) {
     hiddenMessage = "Well done on Winning this hand"
   }
   if (bust) {
@@ -126,8 +139,8 @@ function fold() {
 playing the game. */
 
 function draw() {
-  let newCard = randomValue();
-  sumArray.push(newCard);
+  let newCard = randomCardValue();
+  playerCards.push(newCard);
   startBlackJack;
   
 }
@@ -139,10 +152,13 @@ function resetBlackJack() {
   window.location.reload();
 }
 
+//Replaced the onclicks with these eventlisteners  
+//Update EventHandlers were not working so have updated removed them for now
+//Uncomment below segment if needed in future  
 
-startButton.addEventListener("click", startBlackJack());
-foldButton.addEventListener("click", fold());
-drawButton.addEventListener("click", draw());
-resetButton.addEventListener("click", resetBlackJack());
+//startButton.addEventListener('click', startBlackJack());
+//foldButton.addEventListener('click', fold());
+//drawButton.addEventListener('click', draw());
+//resetButton.addEventListener('click', resetBlackJack());
 
 
