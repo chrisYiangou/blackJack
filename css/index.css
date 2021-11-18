@@ -40,3 +40,15 @@ table, th, td {
     display:inline-block;
 
   }
+
+  #player-el {
+      text-align: left;
+      color: darkgreen;
+  }
+
+  #robot-el {
+      text-align: right;
+      color: fuchsia;
+  }
+
+
