@@ -18,7 +18,7 @@ let twentyOneEl = document.getElementById("twentyOne");
 //console.log(valueOfCard1);
 //console.log(valueOfCard2);
 let blackkJack = false;
-let bust = true;
+let bust = false;
 let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
@@ -26,12 +26,16 @@ let cardSum = 0;
 /*This is the actual value of the cards - I am making it random so that
 when a player starts the game, they will have two random cards to start with
 I've created the */
-let randomValue = Math.floor(Math.random() * 10) + 2;
-
-let valueOfCard1 = randomValue;
-let valueOfCard2 = randomValue;
-
-
+function randomCardValue() {
+  let randomValue = Math.floor(Math.random() * 10) + 2;
+  if (randomValue === 1) {
+    randomValue = 11;
+  } else if (randomValue > 10) {
+    let randomValue = 10;
+  } else {
+    return randomValue;
+  }
+}
 //I need to create an Array of Card Value and the store them like this
 //An additional function sum will then be created so that I am able to add everything together 
 //in the array
@@ -50,7 +54,8 @@ function sum() {
 the functionality of the website. As well as this - we will create a "bot", who the player will play against 
 which should be good*/ 
 function startBlackJack() {
-
+  let valueOfCard1 = randomCardValue();
+  let valueOfCard2 = randomCardValue();
   firstCard.innerHTML = valueOfCard1;
   secondCard.innerHTML = valueOfCard2;
   
