@@ -26,6 +26,7 @@ let messageHTML = document.getElementById("message");
 let hiddenMessageEl = document.getElementById("hiddenMessageEl")
 let twentyOneEl = document.getElementById("twentyOne");
 
+
 //Objects
 let playerEl = document.getElementById("player-el");
 let robotEl = document.getElementById("robot-el");
@@ -43,11 +44,15 @@ let resetButton = document.getElementById("reset-el");
 //console.log(valueOfCard2);
 let blackJack = false;
 let bust = false;
+let folded = false;
 let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
 let playerCards = [];
 let hasfolded = false;
+
+console.log(blackJack);
+console.log(bust);
 
 
 /*This is the actual value of the cards - I am making it random so that
@@ -103,6 +108,8 @@ function startBlackJack() {
 
 function renderBlackJack() {
 
+  if (blackJack === false && bust === false && folded === true) {
+
   sum();
 
   if (cardSum <= 20) {
@@ -110,7 +117,7 @@ function renderBlackJack() {
     sumOfCards.innerHTML = cardSum;
   } else if (cardSum === 21) {
     message = "BLACKJACK";
-    BlackJack = true;
+    blackJack = true;
     sumOfCards.innerHTML = cardSum;
   } else {
     message = "BUST";
@@ -120,6 +127,10 @@ function renderBlackJack() {
   messageHTML.innerHTML = message;
 
 }
+console.log(blackJack);
+console.log(bust)
+
+}
 
 
 /* Creating a function that is able to end the game will be my next step this willbe the FOLD button
@@ -127,7 +138,9 @@ function renderBlackJack() {
 change the game so that the message says Win Fail etc */
 
 function fold() {
- 
+
+folded = true;
+
   if (cardSum <= 20) {
     hiddenMessage = "Could do better try again";
   }
@@ -153,6 +166,11 @@ function draw() {
   
 }
 
+
+//Creating a function to add to the already existing table
+function newCardtoTable() {
+  let newCardRow = table.insertRow(-1);
+}
 
 
 
