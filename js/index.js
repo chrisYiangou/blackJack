@@ -5,10 +5,6 @@
 
 //As this is Chris BlackJack Im going to Create two objects representing the player (me)
 //and the opposition - the robot
-
-
-
-
 let player = {
   //Will include a picture
   name: "Chris",
@@ -97,7 +93,16 @@ function startBlackJack() {
   robotEl.innerHTML = "Opponents Name: " + robot.name + " || Poker Chips  " + robot.pokerChips;
 
   playerCards.push(valueOfCard1, valueOfCard2);
+
+  renderBlackJack();
   
+  
+}
+
+//The startgame button should have a button that renders the game, as this needs to be used in the Draw button as well 
+
+function renderBlackJack() {
+
   sum();
 
   if (cardSum <= 20) {
@@ -113,7 +118,9 @@ function startBlackJack() {
     sumOfCards.innerHTML = cardSum;
   }
   messageHTML.innerHTML = message;
+
 }
+
 
 /* Creating a function that is able to end the game will be my next step this willbe the FOLD button
  this will essentially just 
@@ -142,9 +149,11 @@ playing the game. */
 function draw() {
   let newCard = randomCardValue();
   playerCards.push(newCard);
-  startBlackJack;
+  renderBlackJack();
   
 }
+
+
 
 
 /*This function is made to reset the webpage so that the values within the boxes are reset - In case the user wants to start again
