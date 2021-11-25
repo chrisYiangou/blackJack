@@ -100,6 +100,8 @@ function startBlackJack() {
   playerCards.push(valueOfCard1, valueOfCard2);
 
   renderBlackJack();
+
+  onClick="this.disabled=true;";
   
   
 }
@@ -108,7 +110,7 @@ function startBlackJack() {
 
 function renderBlackJack() {
 
-  if (blackJack === false && bust === false && folded === true) {
+  if (blackJack === false && bust === false && folded === false) {
 
   sum();
 
