@@ -19,6 +19,9 @@ button {
     background-color:lightgreen;
     padding-top: 10px;
     padding-bottom: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-bottom: 4px;
 }
 
 table, th, td {
@@ -27,8 +30,32 @@ table, th, td {
     margin-left: auto;
     margin-right: auto;
     width: auto;
-    min-width: 400px;
     height: auto;
     padding-left: 10px;
     padding-right: 10px;
   }
+
+  .divider {
+    height:auto;
+    display:inline-block;
+
+  }
+  .howToPlayTitle {
+      top: 50px;
+      position: relative;
+      text-align: left;
+      border-style: dotted;
+      background-color: gainsboro;
+  }
+
+  #player-el {
+      text-align: left;
+      color: darkgreen;
+  }
+
+  #robot-el {
+      text-align: right;
+      color: fuchsia;
+  }
+
+
