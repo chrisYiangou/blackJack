@@ -44,6 +44,7 @@ let resetButton = document.getElementById("reset-el");
 let blackJack = false;
 let bust = false;
 let folded = false;
+let gameStarted = false;
 let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
@@ -84,6 +85,9 @@ function sum() {
 the functionality of the website. As well as this - we will create a "bot", who the player will play against 
 which should be good*/
 function startBlackJack() {
+ 
+  if (gameStarted === false) {
+ 
   let valueOfCard1 = randomCardValue();
   let valueOfCard2 = randomCardValue();
 
@@ -97,8 +101,10 @@ function startBlackJack() {
   playerCards.push(valueOfCard1, valueOfCard2);
 
   renderBlackJack();
-
-  onClick = "this.disabled=true;";
+ 
+  }
+   //So users can not use the Start Button once they have used it.
+  gameStarted = true;
 }
 
 //The startgame button should have a button that renders the game, as this needs to be used in the Draw button as well
@@ -130,7 +136,7 @@ function renderBlackJack() {
 change the game so that the message says Win Fail etc */
 
 function fold() {
-  if (blackJack === false && bust === false) {
+  if (gameStarted === true && blackJack === false && bust === false) {
     folded = true;
 
     if (cardSum <= 20) {
@@ -150,9 +156,11 @@ function fold() {
 playing the game. */
 
 function draw() {
+  if (gameStarted === true && blackJack === false && bust === false) {
   let newCard = randomCardValue();
   playerCards.push(newCard);
   renderBlackJack();
+  }
 }
 
 //Creating a function to add to the already existing table
