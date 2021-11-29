@@ -124,11 +124,11 @@ function renderBlackJack() {
       message = "BUST";
       bust = true;
       sumOfCards.innerHTML = cardSum;
+      hiddenMessage = "Try harder - Gamble More";
     }
-    messageHTML.innerHTML = message;
   }
-  console.log(blackJack);
-  console.log(bust);
+  messageHTML.innerHTML = message;
+  hiddenMessageEl.innerHTML = hiddenMessage;
 }
 
 /* Creating a function that is able to end the game will be my next step this willbe the FOLD button
@@ -142,11 +142,8 @@ function fold() {
     if (cardSum <= 20) {
       hiddenMessage = "Could do better try again";
     }
-    if (blackJack) {
+    else (blackJack) => {
       hiddenMessage = "Well done on Winning this hand";
-    }
-    if (bust) {
-      hiddenMessage = "Try harder - Gamble More";
     }
     hiddenMessageEl.innerHTML = hiddenMessage;
   }
