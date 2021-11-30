@@ -76,9 +76,13 @@ function randomCardValue() {
 function sum() {
   let sumArrayCount = playerCards.length;
 
-  for (let i = 0; i < sumArrayCount; i++) {
+console.time("Sum")
+
+  for (var i = 0; i < sumArrayCount; i++) {
     cardSum += playerCards[i];
   }
+
+console.timeEnd("Sum")
   return cardSum;
 }
 
