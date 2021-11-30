@@ -2,6 +2,7 @@
 
 //let firstCard = Math.floor(Math.random + 2);
 //let secondCard = Math.floor(Math.random + 2);
+//(Violates DRY - (Don't Repeat Yourself)
 
 //As this is Chris BlackJack Im going to Create two objects representing the player (me)
 //and the opposition - the robot
@@ -154,6 +155,8 @@ playing the game. */
 
 function draw() {
   if (gameStarted === true && blackJack === false && bust === false) {
+  cardSum -= cardSum;
+  console.log(playerCards);
   let newCard = randomCardValue();
   playerCards.push(newCard);
   renderBlackJack();
