@@ -59,16 +59,26 @@ console.log(bust);
 when a player starts the game, they will have two random cards to start with
 I've created the */
 function randomCardValue() {
-  let randomValue = Math.floor(Math.random() * 10) + 2;
-  if (randomValue === 1) {
+  let randomValue = Math.floor(Math.random() * 10) + 1;
+  
+  
     //User will be able to choose between 1/11 (will figure this out later)
-    return 11;
-  } else if (randomValue > 10) {
-    return 10;
-  } else {
-    return randomValue;
-  }
-}
+    /* An Ace will have a value of 11 unless that would give a player 
+    or the dealer a score in excess of 21; in which case, it has a value of 1.  */
+    if (randomValue === 1 && cardSum < 11) {
+      return 11;
+    }
+    else if (randomValue === 1) {
+      return 1
+    }
+    else if (randomValue > 10) {
+        return 10;
+    }
+    else {
+      return randomValue;
+    }
+    }
+
 //I need to create an Array of Card Value and the store them like this
 //An additional function sum will then be created so that I am able to add everything together
 //in the array
