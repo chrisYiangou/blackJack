@@ -26,6 +26,7 @@ let sumOfCards = document.getElementById("sumOfCards");
 let messageHTML = document.getElementById("message");
 let hiddenMessageEl = document.getElementById("hiddenMessageEl");
 let twentyOneEl = document.getElementById("twentyOne");
+let specific_tbody = document.getElementById("twentyOneBody");
 
 //Objects
 let playerEl = document.getElementById("player-el");
@@ -50,10 +51,9 @@ let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
 let playerCards = [];
-let hasfolded = false;
 
-console.log(blackJack);
-console.log(bust);
+// console.log(blackJack);
+// console.log(bust);
 
 /*This is the actual value of the cards - I am making it random so that
 when a player starts the game, they will have two random cards to start with
@@ -116,6 +116,7 @@ function startBlackJack() {
   playerCards.push(valueOfCard1, valueOfCard2);
 
   renderBlackJack();
+  
  
   }
    //So users can not use the Start Button once they have used it.
@@ -173,13 +174,29 @@ function draw() {
   console.log(playerCards);
   let newCard = randomCardValue();
   playerCards.push(newCard);
+  newCardtoTable();
   renderBlackJack();
   }
 }
 
 //Creating a function to add to the already existing table
 function newCardtoTable() {
-  let newCardRow = table.insertRow(-1);
+  //Specifying the body of the table I want to insert into.
+
+  for(let i = 0; i < playerCards.length; i++) {
+    if (i === (playerCards.length - 1)){
+  // let specific_tbody = document.getElementById("twentyOneBody");
+  
+  let row = specific_tbody.insertRow();
+
+  console.log(playerCards[i])
+  
+  row.textContent = (i + 1) + (i % 3 === 0 ? 'th ' : 'rd ') + "Card " +  " " + (playerCards[i]);
+ 
+  console.log(row.textContent);
+  specific_tbody.append();
+    }
+  }
 }
 
 /*This function is made to reset the webpage so that the values within the boxes are reset - In case the user wants to start again
@@ -192,7 +209,7 @@ function resetBlackJack() {
 //Update EventHandlers were not working so have updated removed them for now
 //Uncomment below segment if needed in future
 
-//startButton.addEventListener('click', startBlackJack());
-//foldButton.addEventListener('click', fold());
-//drawButton.addEventListener('click', draw());
-//resetButton.addEventListener('click', resetBlackJack());
+//startButton.addEventListener('click', startBlackJack);
+//foldButton.addEventListener('click', fold);
+//drawButton.addEventListener('click', draw);
+//resetButton.addEventListener('click', resetBlackJack);
