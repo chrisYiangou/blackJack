@@ -101,26 +101,27 @@ the functionality of the website. As well as this - we will create a "bot", who 
 which should be good*/
 function startBlackJack() {
  
-  if (gameStarted === false) {
- 
-  let valueOfCard1 = randomCardValue();
-  let valueOfCard2 = randomCardValue();
 
-  firstCard.innerHTML = valueOfCard1;
-  secondCard.innerHTML = valueOfCard2;
+
+  if (gameStarted === false) {
+  gameStarted = true; 
+  // let valueOfCard1 = randomCardValue();
+  // let valueOfCard2 = randomCardValue();
+
+  // firstCard.innerHTML = valueOfCard1;
+  // secondCard.innerHTML = valueOfCard2;
   playerEl.innerHTML =
     "Player Name: " + player.name + " || Poker Chips: " + player.pokerChips;
   robotEl.innerHTML =
     "Opponents Name: " + robot.name + " || Poker Chips  " + robot.pokerChips;
 
-  playerCards.push(valueOfCard1, valueOfCard2);
-
-  renderBlackJack();
+  //playerCards.push(valueOfCard1, valueOfCard2);
+  draw();
   
  
   }
    //So users can not use the Start Button once they have used it.
-  gameStarted = true;
+ 
 }
 
 //The startgame button should have a button that renders the game, as this needs to be used in the Draw button as well
@@ -191,7 +192,7 @@ function newCardtoTable() {
 
   console.log(playerCards[i])
   
-  row.textContent = (i + 1) + (i % 3 === 0 ? 'th ' : 'rd ') + "Card " +  " " + (playerCards[i]);
+  row.textContent = "   " + (i + 1) + conditionalDates(i + 1) + "Card: " +  " " + (playerCards[i]) + "   ";
  
   console.log(row.textContent);
   specific_tbody.append();
@@ -202,9 +203,65 @@ function newCardtoTable() {
 /*This function is made to reset the webpage so that the values within the boxes are reset - In case the user wants to start again
 I should start thinking about how users can actually start saving their previous wins/losses...... */
 function resetBlackJack() {
-  window.location.reload();
+  window.location.reload()
+  // valueOfCard1 -= randomCardValue();
+  // valueOfCard2 == randomCardValue();
 }
 
+
+
+function conditionalDates(num) {
+  // I am turning the number into an String so I am able to then split the 'numbers' into an array, this way I can identify the last digit   
+  let text = num.toString();
+  console.log(text);
+  let splitText = text.split('')
+  console.log(splitText);
+  let message = "";
+  
+  console.log(splitText[(splitText.length -1)]);
+  
+  const lastDigit = parseInt(splitText[(splitText.length -1)]);
+  console.log(lastDigit);
+  
+  //used a switch statement to make it a bit more readable.
+
+  switch (lastDigit){
+  case 1:
+      message = "st "
+      console.log(message)
+      break;
+  case 2:
+      message = "nd ";
+      console.log(message)
+      break;
+  case 3: 
+      message = "rd "
+      console.log(message)
+      break;
+  default:
+      message = "th "
+      console.log(message)
+      break;
+  }
+  //  if (parseInt(splitText[(splitText.length -1)] === 1)) {
+  //     message = 'st ';
+  //     console.log(message);
+  //   } 
+  //   if (parseInt(splitText[(splitText.length -1)] === 2)) {
+  //       message = 'nd '
+  //       console.log(message)
+  //   } 
+  //   if (parseInt[splitText.at(splitText.length -1)] === 3) {
+  //     message = 'rd ';
+  //     console.log(message)
+  //   } 
+  //   else {
+  //     message = 'th ';
+  //     console.log(message);
+  //     }
+   return message;   
+  } 
+  
 //Replaced the onclicks with these eventlisteners
 //Update EventHandlers were not working so have updated removed them for now
 //Uncomment below segment if needed in future
