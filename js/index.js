@@ -61,18 +61,22 @@ I've created the */
 function randomCardValue() {
   let randomValue = Math.floor(Math.random() * 10) + 1;
   
-  
+    console.log(cardSum);
+
     //User will be able to choose between 1/11 (will figure this out later)
     /* An Ace will have a value of 11 unless that would give a player 
     or the dealer a score in excess of 21; in which case, it has a value of 1.  */
-    if (randomValue === 1 && cardSum < 11) {
-      return 11;
+    if (cardSum < 11 && randomValue === 1) {
+      randomValue = 11;
+      return randomValue
     }
     else if (randomValue === 1) {
-      return 1
+      randomValue = 1;
+      return randomValue;
     }
     else if (randomValue > 10) {
-        return 10;
+        randomValue = 10;
+        return randomValue;
     }
     else {
       return randomValue;
@@ -212,35 +216,28 @@ function resetBlackJack() {
 
 function conditionalDates(num) {
   // I am turning the number into an String so I am able to then split the 'numbers' into an array, this way I can identify the last digit   
-  let text = num.toString();
-  console.log(text);
-  let splitText = text.split('')
-  console.log(splitText);
+  const text = num.toString();
+  const splitText = text.split('')
   let message = "";
   
   console.log(splitText[(splitText.length -1)]);
   
   const lastDigit = parseInt(splitText[(splitText.length -1)]);
-  console.log(lastDigit);
   
   //used a switch statement to make it a bit more readable.
 
   switch (lastDigit){
   case 1:
       message = "st "
-      console.log(message)
       break;
   case 2:
       message = "nd ";
-      console.log(message)
       break;
   case 3: 
       message = "rd "
-      console.log(message)
       break;
   default:
       message = "th "
-      console.log(message)
       break;
   }
   //  if (parseInt(splitText[(splitText.length -1)] === 1)) {
