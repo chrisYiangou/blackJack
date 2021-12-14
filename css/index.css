@@ -49,13 +49,27 @@ table, th, td {
   }
 
   #player-el {
+      margin-left: auto;
+      font: bold;
       text-align: left;
       color: darkgreen;
+      border-style:dashed;
+      border-color: rgb(250, 50, 0);
+      border-width: thin;
+      padding-top: 10px;
+      padding-bottom: 10px;
   }
 
   #robot-el {
+      margin-right: auto;
+      font: bold;
       text-align: right;
-      color: fuchsia;
+      color: rgb(133, 5, 133);
+      border-style:dashed;
+      border-color: limegreen;
+      border-width: thin;
+      padding-top: 10px;
+      padding-bottom: 10px;
   }
 
 

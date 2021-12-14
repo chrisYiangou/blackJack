@@ -26,6 +26,7 @@ let sumOfCards = document.getElementById("sumOfCards");
 let messageHTML = document.getElementById("message");
 let hiddenMessageEl = document.getElementById("hiddenMessageEl");
 let twentyOneEl = document.getElementById("twentyOne");
+let specific_tbody = document.getElementById("twentyOneBody");
 
 //Objects
 let playerEl = document.getElementById("player-el");
@@ -50,10 +51,9 @@ let message = "";
 let hiddenMessage = "";
 let cardSum = 0;
 let playerCards = [];
-let hasfolded = false;
 
-console.log(blackJack);
-console.log(bust);
+// console.log(blackJack);
+// console.log(bust);
 
 /*This is the actual value of the cards - I am making it random so that
 when a player starts the game, they will have two random cards to start with
@@ -61,18 +61,22 @@ I've created the */
 function randomCardValue() {
   let randomValue = Math.floor(Math.random() * 10) + 1;
   
-  
+    console.log(cardSum);
+
     //User will be able to choose between 1/11 (will figure this out later)
     /* An Ace will have a value of 11 unless that would give a player 
     or the dealer a score in excess of 21; in which case, it has a value of 1.  */
-    if (randomValue === 1 && cardSum < 11) {
-      return 11;
+    if (cardSum < 11 && randomValue === 1) {
+      randomValue = 11;
+      return randomValue
     }
     else if (randomValue === 1) {
-      return 1
+      randomValue = 1;
+      return randomValue;
     }
     else if (randomValue > 10) {
-        return 10;
+        randomValue = 10;
+        return randomValue;
     }
     else {
       return randomValue;
@@ -101,25 +105,27 @@ the functionality of the website. As well as this - we will create a "bot", who 
 which should be good*/
 function startBlackJack() {
  
-  if (gameStarted === false) {
- 
-  let valueOfCard1 = randomCardValue();
-  let valueOfCard2 = randomCardValue();
 
-  firstCard.innerHTML = valueOfCard1;
-  secondCard.innerHTML = valueOfCard2;
+
+  if (gameStarted === false) {
+  gameStarted = true; 
+  // let valueOfCard1 = randomCardValue();
+  // let valueOfCard2 = randomCardValue();
+
+  // firstCard.innerHTML = valueOfCard1;
+  // secondCard.innerHTML = valueOfCard2;
   playerEl.innerHTML =
     "Player Name: " + player.name + " || Poker Chips: " + player.pokerChips;
   robotEl.innerHTML =
     "Opponents Name: " + robot.name + " || Poker Chips  " + robot.pokerChips;
 
-  playerCards.push(valueOfCard1, valueOfCard2);
-
-  renderBlackJack();
+  //playerCards.push(valueOfCard1, valueOfCard2);
+  draw();
+  
  
   }
    //So users can not use the Start Button once they have used it.
-  gameStarted = true;
+ 
 }
 
 //The startgame button should have a button that renders the game, as this needs to be used in the Draw button as well
@@ -173,26 +179,91 @@ function draw() {
   console.log(playerCards);
   let newCard = randomCardValue();
   playerCards.push(newCard);
+  newCardtoTable();
   renderBlackJack();
   }
 }
 
 //Creating a function to add to the already existing table
 function newCardtoTable() {
-  let newCardRow = table.insertRow(-1);
+  //Specifying the body of the table I want to insert into.
+
+  for(let i = 0; i < playerCards.length; i++) {
+    if (i === (playerCards.length - 1)){
+  // let specific_tbody = document.getElementById("twentyOneBody");
+  
+  let row = specific_tbody.insertRow();
+
+  console.log(playerCards[i])
+  
+  row.textContent = "   " + (i + 1) + conditionalDates(i + 1) + "Card: " +  " " + (playerCards[i]) + "   ";
+ 
+  console.log(row.textContent);
+  specific_tbody.append();
+    }
+  }
 }
 
 /*This function is made to reset the webpage so that the values within the boxes are reset - In case the user wants to start again
 I should start thinking about how users can actually start saving their previous wins/losses...... */
 function resetBlackJack() {
-  window.location.reload();
+  window.location.reload()
+  // valueOfCard1 -= randomCardValue();
+  // valueOfCard2 == randomCardValue();
 }
 
+
+
+function conditionalDates(num) {
+  // I am turning the number into an String so I am able to then split the 'numbers' into an array, this way I can identify the last digit   
+  const text = num.toString();
+  const splitText = text.split('')
+  let message = "";
+  
+  console.log(splitText[(splitText.length -1)]);
+  
+  const lastDigit = parseInt(splitText[(splitText.length -1)]);
+  
+  //used a switch statement to make it a bit more readable.
+
+  switch (lastDigit){
+  case 1:
+      message = "st "
+      break;
+  case 2:
+      message = "nd ";
+      break;
+  case 3: 
+      message = "rd "
+      break;
+  default:
+      message = "th "
+      break;
+  }
+  //  if (parseInt(splitText[(splitText.length -1)] === 1)) {
+  //     message = 'st ';
+  //     console.log(message);
+  //   } 
+  //   if (parseInt(splitText[(splitText.length -1)] === 2)) {
+  //       message = 'nd '
+  //       console.log(message)
+  //   } 
+  //   if (parseInt[splitText.at(splitText.length -1)] === 3) {
+  //     message = 'rd ';
+  //     console.log(message)
+  //   } 
+  //   else {
+  //     message = 'th ';
+  //     console.log(message);
+  //     }
+   return message;   
+  } 
+  
 //Replaced the onclicks with these eventlisteners
 //Update EventHandlers were not working so have updated removed them for now
 //Uncomment below segment if needed in future
 
-//startButton.addEventListener('click', startBlackJack());
-//foldButton.addEventListener('click', fold());
-//drawButton.addEventListener('click', draw());
-//resetButton.addEventListener('click', resetBlackJack());
+//startButton.addEventListener('click', startBlackJack);
+//foldButton.addEventListener('click', fold);
+//drawButton.addEventListener('click', draw);
+//resetButton.addEventListener('click', resetBlackJack);
